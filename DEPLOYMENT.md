@@ -21,6 +21,8 @@ Use the transaction pooler string for `DATABASE_URL` and the session/direct stri
 4. Deploy.
 5. After the first successful deploy, run `npm run db:seed` once with the production Supabase environment if you want the default admin, tablet, and employee accounts created.
 
+Redeploy from the latest `main` commit after changing environment variables or migration files.
+
 ## Domain
 
 Add both domains in Vercel:
