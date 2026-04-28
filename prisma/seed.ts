@@ -5,14 +5,16 @@ import bcrypt from 'bcryptjs';
 const prisma = new PrismaClient();
 
 async function main() {
-  const managementPassword = await bcrypt.hash('dehatadmin123', 10);
+  const managementEmail = process.env.SEED_ADMIN_EMAIL || 'info@dehatsweets.com';
+  const managementPassword = await bcrypt.hash(process.env.SEED_ADMIN_PASSWORD || 'dehatadmin123', 10);
   await prisma.user.upsert({
-    where: { email: 'info@dehatsweets.com' },
+    where: { email: managementEmail },
     update: {
-      password: managementPassword,
+      name: 'Management',
+      role: 'ADMIN',
     },
     create: {
-      email: 'info@dehatsweets.com',
+      email: managementEmail,
       password: managementPassword,
       name: 'Management',
       role: 'ADMIN',
@@ -23,7 +25,8 @@ async function main() {
   await prisma.user.upsert({
     where: { email: 'store@dehatsweets.com' },
     update: {
-      password: storePassword,
+      name: 'Store Tablet',
+      role: 'OPERATIONAL',
     },
     create: {
       email: 'store@dehatsweets.com',
@@ -61,7 +64,7 @@ async function main() {
     const employeePassword = await bcrypt.hash('password123', 10);
     await prisma.employee.upsert({
       where: { email: emp.email },
-      update: { ...emp, password: employeePassword },
+      update: emp,
       create: { ...emp, password: employeePassword },
     });
   }

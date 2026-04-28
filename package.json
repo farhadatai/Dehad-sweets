@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "check": "tsc --noEmit",
     "postinstall": "prisma generate",
-    "vercel-build": "prisma migrate deploy && npm run build",
+    "vercel-build": "prisma migrate deploy && npm run db:seed && npm run build",
     "db:migrate": "prisma migrate deploy",
     "server:dev": "nodemon",
     "dev": "concurrently \"npm run client:dev\" \"npm run server:dev\"",

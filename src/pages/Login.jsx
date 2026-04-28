@@ -90,7 +90,7 @@ const Login = () => {
                 <input
                   id="email"
                   type="email"
-                  placeholder="info@dehatsweets.com"
+                  placeholder="Email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
