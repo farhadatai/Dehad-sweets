@@ -1,7 +1,7 @@
 
 import { Router } from 'express';
-import prisma from '../db';
-import { sendEmail } from '../mailer';
+import prisma from '../db.js';
+import { sendEmail } from '../mailer.js';
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';

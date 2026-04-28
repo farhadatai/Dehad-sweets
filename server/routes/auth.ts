@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import prisma from '../db';
+import prisma from '../db.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { sendEmail } from '../mailer';
+import { sendEmail } from '../mailer.js';
 
 const router = Router();
 

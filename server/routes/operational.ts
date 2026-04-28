@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import prisma from '../db';
-import { adjustDailyGoal } from '../logic/goal-adjustment';
+import prisma from '../db.js';
+import { adjustDailyGoal } from '../logic/goal-adjustment.js';
 
 const router = Router();
 

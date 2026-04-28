@@ -1,6 +1,6 @@
 
 import { Router } from 'express';
-import prisma from '../db';
+import prisma from '../db.js';
 import multer from 'multer';
 import path from 'path';
 

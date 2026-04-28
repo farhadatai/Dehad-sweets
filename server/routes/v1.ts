@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import storeRoutes from './stores';
-import productRoutes from './products';
-import orderRoutes from './orders';
-import dashboardRoutes from './dashboard';
-import adminEmployeeRoutes from './admin/employees';
-import productionRoutes from './production';
-import expenseRoutes from './expenses';
-import goalRoutes from './goals';
+import storeRoutes from './stores.js';
+import productRoutes from './products.js';
+import orderRoutes from './orders.js';
+import dashboardRoutes from './dashboard.js';
+import adminEmployeeRoutes from './admin/employees.js';
+import productionRoutes from './production.js';
+import expenseRoutes from './expenses.js';
+import goalRoutes from './goals.js';
 
 const router = Router();
 

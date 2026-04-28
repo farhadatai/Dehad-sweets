@@ -3,22 +3,22 @@ import cors from 'cors';
 import path from 'path';
 import session from 'express-session';
 
-import authRoutes from './routes/auth';
-import storeRoutes from './routes/stores';
-import productRoutes from './routes/products';
-import orderRoutes from './routes/orders';
-import dashboardRoutes from './routes/dashboard';
-import productionRoutes from './routes/production';
-import expenseRoutes from './routes/expenses';
-import employeeRoutes from './routes/employees';
-import inventoryRoutes from './routes/inventory';
-import operationalRoutes from './routes/operational';
-import reportRoutes from './routes/reports';
-import partnerRoutes from './routes/partners';
-import customerRoutes from './routes/customer';
+import authRoutes from './routes/auth.js';
+import storeRoutes from './routes/stores.js';
+import productRoutes from './routes/products.js';
+import orderRoutes from './routes/orders.js';
+import dashboardRoutes from './routes/dashboard.js';
+import productionRoutes from './routes/production.js';
+import expenseRoutes from './routes/expenses.js';
+import employeeRoutes from './routes/employees.js';
+import inventoryRoutes from './routes/inventory.js';
+import operationalRoutes from './routes/operational.js';
+import reportRoutes from './routes/reports.js';
+import partnerRoutes from './routes/partners.js';
+import customerRoutes from './routes/customer.js';
 
-import auth from './middleware/auth';
-import authorize from './middleware/authorize';
+import auth from './middleware/auth.js';
+import authorize from './middleware/authorize.js';
 
 const app = express();
 

@@ -1,4 +1,4 @@
-import prisma from '../db';
+import prisma from '../db.js';
 
 const MINIMUM_INVENTORY_THRESHOLD = 10;
 
