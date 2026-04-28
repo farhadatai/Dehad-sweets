@@ -9,7 +9,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { default: app } = await import('../server/app');
+    const { default: app } = await import('../server/app.js');
     return app(req, res);
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown API startup error';
