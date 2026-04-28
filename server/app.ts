@@ -36,7 +36,8 @@ app.use(session({
   }
 }));
 app.use(express.static(path.join(process.cwd(), 'public')));
-app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
+const uploadRoot = process.env.VERCEL ? '/tmp/uploads' : path.join(process.cwd(), 'uploads');
+app.use('/uploads', express.static(uploadRoot));
 
 app.get('/', (_req, res) => {
   res.json({

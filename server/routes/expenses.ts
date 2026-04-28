@@ -3,12 +3,16 @@ import { Router } from 'express';
 import prisma from '../db.js';
 import multer from 'multer';
 import path from 'path';
+import fs from 'fs';
 
 const router = Router();
+const uploadRoot = process.env.VERCEL ? '/tmp/uploads' : path.join(process.cwd(), 'uploads');
+const receiptUploadDir = path.join(uploadRoot, 'receipts');
+fs.mkdirSync(receiptUploadDir, { recursive: true });
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './uploads/receipts');
+        cb(null, receiptUploadDir);
     },
     filename: (req, file, cb) => {
         cb(null, `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`);

@@ -7,7 +7,8 @@ import path from 'path';
 import fs from 'fs';
 
 const router = Router();
-const invoiceUploadDir = path.join(process.cwd(), 'uploads', 'invoices');
+const uploadRoot = process.env.VERCEL ? '/tmp/uploads' : path.join(process.cwd(), 'uploads');
+const invoiceUploadDir = path.join(uploadRoot, 'invoices');
 fs.mkdirSync(invoiceUploadDir, { recursive: true });
 
 const invoiceUpload = multer({
