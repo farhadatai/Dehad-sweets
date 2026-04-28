@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-off-white;
+    font-family: theme('fontFamily.sans');
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-gold;
+  }
+}
+
+@layer components {
+  .btn-retheme {
+    @apply inline-flex items-center justify-center border border-gold bg-transparent text-gold font-bold py-1.5 px-3 text-sm sm:py-2 sm:px-4 sm:text-base rounded transition-colors duration-300 whitespace-nowrap;
+  }
+  .btn-retheme:hover {
+    @apply bg-gold text-black;
+  }
+
+  .card-retheme {
+    @apply bg-card border border-gold rounded-xl p-4;
+  }
+
+  .table-header-retheme {
+    @apply bg-dark-brown;
+  }
+
+  .table-grid-retheme {
+    @apply border-gold/20;
+  }
+
+  .input-retheme {
+    @apply p-2 border border-gold rounded bg-input-bg text-off-white min-w-0;
+  }
+
+  .sidebar-btn {
+    @apply block w-full text-left py-3 px-4 rounded-lg border border-transparent transition-all duration-300;
+  }
+
+  .sidebar-btn:hover, .sidebar-btn.active {
+    @apply bg-gold text-black border-gold;
+  }
+
+  .btn-gold-shiny {
+    @apply inline-flex items-center justify-center border border-gold bg-transparent text-gold py-1.5 px-3 text-sm sm:py-2 sm:px-4 sm:text-base rounded font-bold transition-colors duration-300 whitespace-nowrap;
+  }
+
+  .btn-gold-shiny:hover, .btn-gold-shiny:active {
+    @apply bg-gold text-black;
+  }
+}

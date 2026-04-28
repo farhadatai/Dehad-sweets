@@ -1,0 +1,175 @@
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Store {
+  id        String    @id @default(cuid())
+  name      String
+  owner     String
+  phone     String
+  address   String
+  email     String    @unique
+  notes     String?
+  isActive  Boolean   @default(true)
+  orders    Order[]
+  users     User[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Product {
+  id            String    @id @default(cuid())
+  name          String
+  category      String
+  boxSize       String
+  unitsPerCase  Int
+  costPerBox    Float
+  wholesalePricePerBox Float
+  inventory     Int       @default(0)
+  isActive      Boolean   @default(true)
+  orders        Order[]
+  inventoryLogs InventoryLog[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Order {
+  id          String    @id @default(cuid())
+  storeId     String
+  store       Store     @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  userId      String?   // Link to the user who placed the order
+  user        User?     @relation(fields: [userId], references: [id])
+  productId   String
+  product     Product   @relation(fields: [productId], references: [id], onDelete: Restrict)
+  quantity    Int
+  pricePerBox Float
+  totalPrice  Float
+  orderDate   DateTime  @default(now())
+  deliveryDate DateTime
+  paymentStatus String    @default("unpaid")
+  orderStatus String    @default("pending")
+  deliveredBy   String?
+  receiverName  String?
+  deliveryInvoice String?
+  notes       String?
+  inventoryLog  InventoryLog[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model InventoryLog {
+  id          String    @id @default(cuid())
+  productId   String
+  product     Product   @relation(fields: [productId], references: [id], onDelete: Restrict)
+  orderId     String?
+  order       Order?    @relation(fields: [orderId], references: [id], onDelete: SetNull)
+  quantity    Int
+  inventoryBefore Int?
+  inventoryAfter  Int?
+  reason      String // e.g., "manual_adjustment", "production_completion", "order_fulfillment"
+  createdAt   DateTime  @default(now())
+}
+
+
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  password  String
+  name      String
+  storeName String?
+  storeId   String?
+  store     Store?    @relation(fields: [storeId], references: [id], onDelete: SetNull)
+  address   String?
+  phone     String?
+  role      String    @default("CUSTOMER") // Add role field
+  accountStatus String @default("APPROVED")
+  orders    Order[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Employee {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  password  String
+  name      String
+  role      String    @default("EMPLOYEE")
+  pin       String?
+  hourlyRate Float
+  timeLogs  TimeLog[]
+  payrolls  Payroll[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model TimeLog {
+  id          String    @id @default(cuid())
+  employeeId  String
+  employee    Employee  @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  clockIn     DateTime
+  clockOut    DateTime?
+  totalHours  Float?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Payroll {
+  id          String    @id @default(cuid())
+  employeeId  String
+  employee    Employee  @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  payPeriodStart DateTime
+  payPeriodEnd   DateTime
+  totalHours  Float
+  totalPay    Float
+  isPaid      Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Expense {
+  id        String   @id @default(cuid())
+  item      String
+  category  String
+  amount    Float
+  date      DateTime
+  receipt   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ProductionGoal {
+    id    String @id @default(cuid())
+    month Int
+    year  Int
+    goal  Int
+
+    @@unique([month, year])
+}
+
+model HistoricalRecord {
+  id              String   @id @default(cuid())
+  month           Int
+  year            Int
+  totalRevenue    Float
+  totalCogs       Float
+  totalExpenses   Float
+  totalLaborCost  Float
+  netProfit       Float
+  totalBoxesSold  Int
+  goal            Int
+  goalAchieved    Boolean
+  createdAt       DateTime @default(now())
+
+  @@unique([month, year])
+}
