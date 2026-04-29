@@ -10,6 +10,7 @@ const PublicLayout = () => {
           <div className="flex flex-nowrap sm:flex-wrap items-center gap-2 overflow-x-auto sm:overflow-visible w-full sm:w-auto pb-1 sm:pb-0">
             <Link to="/" className="btn-retheme">Home</Link>
             <Link to="/products" className="btn-retheme">Products</Link>
+            <a href="/catalog/dehat-sweets-product-catalog.pdf" download className="btn-retheme">Catalog</a>
             <Link to="/become-a-partner" className="btn-retheme">Partner</Link>
             <Link to="/login" className="btn-retheme">Management</Link>
           </div>

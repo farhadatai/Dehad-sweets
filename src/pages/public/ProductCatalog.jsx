@@ -63,6 +63,9 @@ const LandingPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mt-8">
             <Link to="/products" className="btn-gold-shiny text-center text-lg px-6 py-3">View Products</Link>
+            <a href="/catalog/dehat-sweets-product-catalog.pdf" download className="btn-retheme text-center text-lg px-6 py-3">
+              Download Catalog
+            </a>
             <Link to="/become-a-partner" className="btn-retheme text-center text-lg px-6 py-3">
               Become a Partner
             </Link>
@@ -86,7 +89,7 @@ const LandingPage = () => {
                 A focused product line for markets that need reliable sweets, clear case counts, and easy reordering.
               </p>
             </div>
-            <Link to="/products" className="btn-retheme md:w-auto text-center">See Full Catalog</Link>
+            <a href="/catalog/dehat-sweets-product-catalog.pdf" download className="btn-retheme md:w-auto text-center">Download Catalog</a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
@@ -166,6 +169,9 @@ const LandingPage = () => {
           </div>
           <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
             <Link to="/become-a-partner" className="btn-gold-shiny text-center text-lg px-6 py-3">Become a Partner</Link>
+            <a href="/catalog/dehat-sweets-product-catalog.pdf" download className="btn-retheme text-center text-lg px-6 py-3">
+              Download Catalog
+            </a>
             <Link to="/products" className="btn-retheme text-center text-lg px-6 py-3">Browse Products</Link>
           </div>
         </div>
