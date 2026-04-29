@@ -13,7 +13,25 @@ export default defineConfig({
       },
     }),
     tsconfigPaths(),
-    VitePWA({ registerType: 'autoUpdate' }),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest: {
+        name: 'Dehat Sweets and Foods',
+        short_name: 'Dehat',
+        icons: [
+          {
+            src: '/dehat-icon-192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/dehat-icon-512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
+      },
+    }),
   ],
   server: {
     host: '0.0.0.0',
