@@ -63,6 +63,13 @@ const Register = () => {
             <p className="text-lg sm:text-xl text-off-white mt-5">
               Share your store details once. Management can approve your account, then you can place wholesale orders and track invoices online.
             </p>
+            <a
+              href="/catalog/dehat-sweets-product-catalog.pdf"
+              download
+              className="btn-gold-shiny inline-block mt-7 text-lg px-6 py-3"
+            >
+              Download Product Catalog
+            </a>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8">
               {[
                 { icon: FaStore, title: 'Send Request' },

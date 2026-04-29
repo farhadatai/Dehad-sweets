@@ -63,11 +63,6 @@ const ProductsPage = () => {
   return (
     <section className="py-12 sm:py-20 px-5 sm:px-6 pt-36 sm:pt-40">
       <h2 className="text-4xl sm:text-5xl font-serif text-gold text-center font-bold mb-8 sm:mb-12">Products</h2>
-      <div className="container mx-auto mb-8 flex justify-center">
-        <a href="/catalog/dehat-sweets-product-catalog.pdf" download className="btn-gold-shiny text-center text-lg px-6 py-3">
-          Download Product Catalog
-        </a>
-      </div>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8 place-items-center">
         {products.map(product => (
           <Link to={`/products/${product.slug}`} key={product.id} className="w-full bg-[#111] border border-gold/35 rounded-lg overflow-hidden shadow-lg hover:border-gold transition-colors">
