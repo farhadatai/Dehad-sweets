@@ -7,25 +7,25 @@ const products = [
     id: 1,
     name: 'Cream Rolls',
     slug: 'cream-rolls',
-    image: '/cream-roll-feature.png',
+    image: '/cream-rolls.png',
   },
   {
     id: 2,
     name: 'Root',
     slug: 'root',
-    image: '/Root.jpg',
+    image: '/root.png',
   },
   {
     id: 3,
     name: 'Malida',
     slug: 'malida',
-    image: '/Malida.jpg',
+    image: '/malida.png',
   },
   {
     id: 4,
     name: 'Khajoor',
     slug: 'khajoor',
-    image: '/Khajoor.jpg',
+    image: '/khajoor.png',
   },
   {
     id: 5,
@@ -35,18 +35,24 @@ const products = [
   },
   {
     id: 6,
-    name: 'Afghan Chatni Green / Red',
-    slug: 'afghan-chatni',
-    image: '/afghan-chatni.png',
+    name: 'Afghan Chatni Green',
+    slug: 'afghan-chatni-green',
+    image: '/afghan-chatni-green.png',
   },
   {
     id: 7,
+    name: 'Afghan Chatni Red',
+    slug: 'afghan-chatni-red',
+    image: '/afghan-chatni-red.png',
+  },
+  {
+    id: 8,
     name: 'Masali Deg',
     slug: 'masali-deg',
     image: '/masali-deg.png',
   },
   {
-    id: 8,
+    id: 9,
     name: 'Masala Dar Pepper',
     slug: 'masala-dar-pepper',
     image: '/masala-dar-pepper.png',
@@ -66,7 +72,7 @@ const ProductsPage = () => {
         ))}
       </div>
       <div className="container mx-auto mt-12">
-        <img src="/Spices.jpg?v=1.1" alt="A collection of various spices" className="w-full h-auto rounded-lg shadow-lg" />
+        <img src="/savory-products.png" alt="Dehat savory products" className="w-full h-auto rounded-lg shadow-lg" />
       </div>
     </section>
   );

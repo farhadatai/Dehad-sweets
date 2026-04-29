@@ -49,7 +49,7 @@ const Login = () => {
     <div className="min-h-screen pt-28 bg-black">
       <section
         className="relative min-h-[calc(100vh-7rem)] flex items-center bg-cover bg-center"
-        style={{ backgroundImage: "url('/Spices.jpg')" }}
+        style={{ backgroundImage: "url('/savory-products.png')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/35"></div>
         <div className="relative z-10 container mx-auto px-5 sm:px-6 py-10 sm:py-14 grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-6 sm:gap-8 items-center">

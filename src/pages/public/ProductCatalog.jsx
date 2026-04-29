@@ -8,26 +8,26 @@ const featuredProducts = [
   {
     id: 1,
     name: 'Cream Rolls',
-    image: '/cream-roll-feature.png',
+    image: '/cream-rolls.png',
     detail: '9 piece retail boxes',
   },
   {
     id: 2,
     name: 'Root',
-    image: '/Root.jpg',
-    detail: 'Traditional bakery favorite',
+    image: '/root.png',
+    detail: '1.5 lb boxes',
   },
   {
     id: 3,
     name: 'Malida',
-    image: '/Malida.jpg',
-    detail: 'Rich, familiar Afghan flavor',
+    image: '/malida.png',
+    detail: '1.5 lb boxes',
   },
   {
     id: 4,
     name: 'Khajoor',
-    image: '/Khajoor.jpg',
-    detail: 'Sweet tea-time staple',
+    image: '/khajoor.png',
+    detail: '1.5 lb boxes',
   },
 ];
 
@@ -49,7 +49,7 @@ const LandingPage = () => {
     <div className="bg-black text-off-white">
       <section
         className="relative min-h-[88vh] flex flex-col md:block bg-cover bg-center pt-28"
-        style={{ backgroundImage: "url('/cream-roll-feature.png')" }}
+        style={{ backgroundImage: "url('/more-than-food.png')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20"></div>
         <div className="relative z-10 container mx-auto px-5 sm:px-6 pb-10 md:pb-16 flex-1 flex flex-col justify-center">
@@ -128,13 +128,13 @@ const LandingPage = () => {
             </div>
             <Link to="/become-a-partner" className="btn-gold-shiny inline-block mt-8 text-lg px-6 py-3">Request Wholesale Info</Link>
           </div>
-          <img src="/why-stores-choose-dehat.jpg" alt="Why stores choose Dehat Sweets and Foods" className="w-full rounded-lg shadow-lg object-cover max-h-[520px]" />
+          <img src="/why-dehat.png" alt="Why stores choose Dehat Sweets and Foods" className="w-full rounded-lg shadow-lg object-cover max-h-[520px]" />
         </div>
       </section>
 
       <section className="py-12 sm:py-16 px-5 sm:px-6 bg-[#101010]">
         <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <img src="/About-Dehad.png" alt="About Dehat Sweets and Foods" className="w-full rounded-lg shadow-lg object-cover max-h-[520px]" />
+          <img src="/about-dehat.png" alt="About Dehat Sweets and Foods" className="w-full rounded-lg shadow-lg object-cover max-h-[520px]" />
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold">Traditional Taste, Organized Delivery</h2>
             <p className="text-lg text-off-white mt-4">
