@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /employee
+Disallow: /tablet
+Disallow: /store
+Disallow: /api/
+
+Sitemap: https://www.dehatsweets.com/sitemap.xml
