@@ -54,3 +54,108 @@
     @apply bg-gold text-black;
   }
 }
+
+/* ============================================================
+   Heritage design system — public redesign (redesign/heritage)
+   ============================================================ */
+
+@layer components {
+  .btn-hero-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-saffron text-charcoal font-semibold px-6 py-3 text-base sm:text-lg shadow-sm transition-colors duration-200;
+  }
+  .btn-hero-primary:hover { @apply bg-saffron-soft; }
+
+  .btn-hero-secondary {
+    @apply inline-flex items-center justify-center rounded-md border border-cream/70 text-cream font-semibold px-6 py-3 text-base sm:text-lg transition-colors duration-200;
+  }
+  .btn-hero-secondary:hover { @apply bg-cream/10 border-cream; }
+
+  .btn-forest {
+    @apply inline-flex items-center justify-center rounded-md bg-forest text-cream font-semibold px-5 py-2.5 transition-colors duration-200;
+  }
+  .btn-forest:hover { @apply bg-forest-deep; }
+
+  .btn-outline-forest {
+    @apply inline-flex items-center justify-center rounded-md border border-forest/50 text-forest font-semibold px-5 py-2.5 transition-colors duration-200;
+  }
+  .btn-outline-forest:hover { @apply bg-forest text-cream; }
+
+  .heritage-link {
+    @apply text-charcoal/80 hover:text-burgundy font-medium transition-colors duration-200 rounded px-1 py-0.5;
+  }
+  .heritage-link[aria-current="page"] { @apply text-burgundy; }
+
+  .heading-display { @apply font-serif text-charcoal; }
+  .eyebrow { @apply uppercase tracking-[0.18em] text-xs sm:text-sm font-semibold text-burgundy; }
+  .eyebrow-on-dark { @apply uppercase tracking-[0.18em] text-xs sm:text-sm font-semibold text-saffron-soft; }
+}
+
+/* Focus visibility (public pages) */
+.public-shell a:focus-visible,
+.public-shell button:focus-visible,
+.public-shell input:focus-visible,
+.public-shell textarea:focus-visible,
+.public-shell select:focus-visible {
+  outline: 2px solid #6E1F2A;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #26221C;
+  color: #FBF7EE;
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 6px 0;
+}
+.skip-link:focus { left: 0; }
+
+/* Paper grain — very subtle, pure CSS (no asset download) */
+.paper-grain {
+  background-image: radial-gradient(rgba(38, 34, 28, 0.035) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Hero entrance (CSS only, runs once) */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-enter { animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hero-enter-delay-1 { animation-delay: 0.15s; }
+.hero-enter-delay-2 { animation-delay: 0.3s; }
+.hero-enter-delay-3 { animation-delay: 0.45s; }
+
+/* Gentle Ken Burns on hero image — slow, subtle, GPU-friendly */
+@keyframes heroDrift {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+.hero-drift { animation: heroDrift 18s ease-out both; }
+
+/* Product card hover */
+.product-card { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease; }
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -18px rgba(38, 34, 28, 0.35); }
+.product-card img { transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+.product-card:hover img { transform: scale(1.04); }
+
+/* Reduced motion: everything renders immediately */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hero-enter, .hero-enter-delay-1, .hero-enter-delay-2, .hero-enter-delay-3, .hero-drift { animation: none; }
+  .product-card, .product-card img { transition: none; }
+  .public-shell * { scroll-behavior: auto !important; }
+}
